@@ -1,4 +1,5 @@
 # Striver SDE Intern Assignment
+
 ![image](https://github.com/thrishank/striver_assignment/assets/86158204/a5058dcd-1afc-4cbc-b6b4-775b4178a645)
 ![image](https://github.com/thrishank/striver_assignment/assets/86158204/3a796c7b-41fc-4262-8cd6-01a67f9acad6)
 
@@ -27,7 +28,7 @@
 
 3. MySQL database - avien
 4. Redis - upstash
-![image](https://github.com/thrishank/striver_assignment/assets/86158204/65df74f4-cd00-439d-8793-55cd9addf9d1)
+   ![image](https://github.com/thrishank/striver_assignment/assets/86158204/65df74f4-cd00-439d-8793-55cd9addf9d1)
 
 ## Features & Improvments
 
@@ -35,3 +36,6 @@
 2. Create a page to sort the data
    - url/{user} to list all the submissions a user has made
    - url/{language} to list all the submissions made in a given language
+3. All the api keys and all the urls are hard coded they all should be in a .env file
+4. The Website is not mobile responsive should work on this.
+5. Dockerize the project
