@@ -4,7 +4,7 @@
 
 - Backend - Express, MySQL, Prisma ORM, Redis
 - Frontend - ReactJS, TailwindCSS
-- Librarys - zod (input validation), ioredis, axios
+- Libraries - zod (input validation), ioredis, axios
 
 ## Deployment
 
@@ -17,14 +17,15 @@
 
 2. Backend
 
-- The backend may be down some times since it is a free version
+- The backend may be down sometimes since it is a free version
 - render
   - url = https://striver-assignment-xnzp.onrender.com/api/v1
   - A post route to save the date in MySQL database = url/submit-form
-  - A get route to get all the submission form the DB = url/entries;
+  - A get route to get all the submissions form the DB = url/entries;
 
 3. MySQL database - avien
 4. Redis - upstash
+![image](https://github.com/thrishank/striver_assignment/assets/86158204/65df74f4-cd00-439d-8793-55cd9addf9d1)
 
 ## Features & Improvments
 
