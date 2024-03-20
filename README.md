@@ -1,4 +1,6 @@
 # Striver SDE Intern Assignment
+![image](https://github.com/thrishank/striver_assignment/assets/86158204/a5058dcd-1afc-4cbc-b6b4-775b4178a645)
+![image](https://github.com/thrishank/striver_assignment/assets/86158204/3a796c7b-41fc-4262-8cd6-01a67f9acad6)
 
 ## Tech Stack
 
