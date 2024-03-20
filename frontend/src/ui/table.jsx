@@ -1,14 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function isBase64(str) {
-  try {
-    return btoa(atob(str)) === str;
-  } catch (error) {
-    return false;
-  }
-}
-
 export default function TableComponent({ item }) {
   const [output, setOutput] = useState({});
 
@@ -88,9 +80,7 @@ export default function TableComponent({ item }) {
           <pre>
             {output.compile_output && atob(output.compile_output).slice(0, 120)}
           </pre>
-          <pre>
-            {output.stderr && atob(output.stderr).slice(0, 120)}
-          </pre>
+          <pre>{output.stderr && atob(output.stderr).slice(0, 120)}</pre>
         </div>
       </td>
     </tr>

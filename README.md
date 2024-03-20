@@ -1,4 +1,4 @@
-### Striver SDE Intern Assignment
+# Striver SDE Intern Assignment
 
 ## Tech Stack
 
