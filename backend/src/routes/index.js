@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 
 const router = express.Router();
 
+// Zod Schema to validate the submitted input
 const formDataSchema = z.object({
   username: z.string().min(1).max(50),
   language: z.string().min(1).max(50),
@@ -15,6 +16,7 @@ const formDataSchema = z.object({
   output: z.string(),
 });
 
+// A middleware to check if the date coming from the user aligns with the zod schema or not
 function validateForm(req, res, next) {
   try {
     const { success } = formDataSchema.safeParse(req.body);
@@ -33,6 +35,7 @@ function validateForm(req, res, next) {
   }
 }
 
+// Route to get the data from the user submitted form and store it in the database
 router.post("/submit-form", validateForm, async (req, res) => {
   const { username, language, stdin, sourcecode, output } = req.body;
   const time = new Date().toISOString();
@@ -53,19 +56,21 @@ router.post("/submit-form", validateForm, async (req, res) => {
     res.status(500).send(err);
   }
 
+  // deleteing the redis cached data. Since the cached data is outdated
   redis.del("entries_data");
 });
 
+// Route to get all the data stored in the database
 router.get("/entries", async (req, res) => {
   try {
-    const cachedValue = await redis.get("entries_data");
+    const cachedValue = await redis.get("entries_data"); // getting the data from redis
     if (cachedValue) {
       return res.status(200).send(cachedValue);
     }
 
     const allEntries = await prisma.formData.findMany();
 
-    await redis.set("entries_data", JSON.stringify(allEntries));
+    await redis.set("entries_data", JSON.stringify(allEntries)); // caching the data in redis
 
     res.status(200).send(allEntries);
   } catch (err) {
