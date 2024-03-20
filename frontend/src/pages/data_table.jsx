@@ -4,7 +4,7 @@ import { Heading } from "../components/heading";
 import TableComponent from "../ui/table";
 
 export default function Data() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([]); // state variabe to store the submissions
 
   useEffect(() => {
     const url = "https://striver-assignment-xnzp.onrender.com/api/v1/entries";

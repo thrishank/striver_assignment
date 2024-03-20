@@ -8,6 +8,8 @@ import { SubHeading } from "../components/subheading";
 import { useNavigate } from "react-router-dom";
 
 export default function CodeForm({ axiosInstance }) {
+  /* Can use a object here to store all the sate variables 
+  in one single object but intially went with this approach.*/
   const [username, setUsername] = useState("");
   const [language, setLanguage] = useState("");
   const [stdin, setStdin] = useState("");
@@ -32,14 +34,13 @@ export default function CodeForm({ axiosInstance }) {
       },
       data: {
         language_id: id,
-        stdin: btoa(stdin),
+        stdin: btoa(stdin), // sending the base64 data
         source_code: btoa(sourcecode),
       },
     };
 
     try {
       const response = await axiosInstance.request(options);
-
       return response.data.token;
     } catch (error) {
       setErrorMessage("Error submitting code. Please try again.");
@@ -57,6 +58,7 @@ export default function CodeForm({ axiosInstance }) {
     let id;
 
     switch (language) {
+      // hard coded the languages id since we are dealing with only four
       case "JavaScript":
         id = 93;
         break;
@@ -74,16 +76,19 @@ export default function CodeForm({ axiosInstance }) {
         return;
     }
 
-    const token = await code_submission(id);
+    const token = await code_submission(id); // gets the output token submitted to the judge0 API
 
     const requestbody = {
       username,
       language,
+      /* again sending the data in encoded base64 to store in database
+      since the code can contain combination of numbers and differnet types of charcters */
       stdin: btoa(stdin),
       sourcecode: btoa(sourcecode),
       output: token,
     };
 
+    // sending the data to our express backend
     try {
       await axiosInstance
         .post(

@@ -17,6 +17,7 @@ export default function TableComponent({ item }) {
     },
   };
   useEffect(() => {
+    // getting the output of the users submission
     if (item.output) {
       axios
         .request(options)
@@ -28,8 +29,6 @@ export default function TableComponent({ item }) {
         });
     }
   }, []);
-
-  console.log(output);
 
   const dateTime = new Date(item.date);
 
@@ -63,10 +62,6 @@ export default function TableComponent({ item }) {
       <td className="px-6 py-4">
         <pre>{atob(item.sourcecode).slice(0, 100)}</pre>
       </td>
-      {/* <CodeFormatter
-        codeString={atob(item.sourcecode)}
-        language={item.language}
-      /> */}
       <td className="px-6 py-4">
         <div>
           <strong>Stdin:</strong> {atob(item.stdin)}
