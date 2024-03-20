@@ -1,4 +1,4 @@
-import { SubHeading } from "./subheading";
+import { SubHeading } from "../components/subheading";
 
 export default function LanguageSelect({ label, value, onChange }) {
   return (

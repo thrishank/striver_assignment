@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Heading } from "../components/heading";
-import TableComponent from "../components/table";
+import TableComponent from "../ui/table";
 
 export default function Data() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:3000/api/v1/entries";
+    const url = "https://striver-assignment-xnzp.onrender.com/api/v1/entries";
     axios
       .get(url)
       .then((res) => {
@@ -46,7 +46,7 @@ export default function Data() {
           </thead>
           <tbody>
             {data.map((object, key) => (
-              <TableComponent item={object}/>
+              <TableComponent item={object} />
             ))}
           </tbody>
         </table>

@@ -64,24 +64,13 @@ router.get("/entries", async (req, res) => {
     }
 
     const allEntries = await prisma.formData.findMany();
-    console.log(allEntries);
+
     await redis.set("entries_data", JSON.stringify(allEntries));
 
     res.status(200).send(allEntries);
   } catch (err) {
     console.log(err);
   }
-});
-
-// don't push this to github
-router.get("/clean", async (req, res) => {
-  const all = await prisma.formData.findMany();
-  const cache = await redis.get("entries_data");
-  res.json({
-    msg: "database is cleaned delete the redis cache now",
-    database: all,
-    redis: cache,
-  });
 });
 
 module.exports = router;

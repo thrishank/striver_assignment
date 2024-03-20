@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TextInput from "../components/textinput";
-import LanguageSelect from "../components/language";
+import LanguageSelect from "../ui/language";
 import Button from "../components/button";
 import axios from "axios";
 import { Heading } from "../components/heading";
@@ -84,7 +84,7 @@ export default function CodeForm({ axiosInstance }) {
     try {
       await axiosInstance
         .post(
-          "http://localhost:3000/api/v1/submit-form",
+          "https://striver-assignment-xnzp.onrender.com/api/v1/submit-form",
           JSON.stringify(requestbody),
           {
             headers: {
