@@ -23,8 +23,8 @@ export default function Data() {
       <div className="text-center py-6">
         <Heading text={"All Code Submissions"} />
       </div>
-      <div className="relative overflow-x-auto">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <div className="relative overflow-x-auto flex justify-center">
+        <table className="w-70 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
@@ -37,10 +37,10 @@ export default function Data() {
                 Date
               </th>
               <th scope="col" className="px-6 py-3">
-                Source Code
+                Source Code (First 100 charcters)
               </th>
               <th scope="col" className="px-6 py-3">
-                Input & Output
+                Input & Output (First 100 charcters)
               </th>
             </tr>
           </thead>

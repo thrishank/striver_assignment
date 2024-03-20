@@ -5,6 +5,7 @@ import Button from "../components/button";
 import axios from "axios";
 import { Heading } from "../components/heading";
 import { SubHeading } from "../components/subheading";
+import { useNavigate } from "react-router-dom";
 
 export default function CodeForm({ axiosInstance }) {
   const [username, setUsername] = useState("");
@@ -12,6 +13,8 @@ export default function CodeForm({ axiosInstance }) {
   const [stdin, setStdin] = useState("");
   const [sourcecode, setSourceCode] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   async function code_submission(id) {
     const options = {
@@ -94,6 +97,7 @@ export default function CodeForm({ axiosInstance }) {
         )
         .then((res) => {
           setErrorMessage(res.data);
+          navigate("/entries");
         });
     } catch (error) {
       setErrorMessage("Error submitting form data.");

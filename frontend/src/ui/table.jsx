@@ -88,6 +88,9 @@ export default function TableComponent({ item }) {
           <pre>
             {output.compile_output && atob(output.compile_output).slice(0, 120)}
           </pre>
+          <pre>
+            {output.stderr && atob(output.stderr).slice(0, 120)}
+          </pre>
         </div>
       </td>
     </tr>
