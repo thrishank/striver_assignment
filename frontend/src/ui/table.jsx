@@ -63,19 +63,32 @@ export default function TableComponent({ item }) {
         <pre>{atob(item.sourcecode).slice(0, 100)}</pre>
       </td>
       <td className="px-6 py-4">
-        <div>
-          <strong>Stdin:</strong> {atob(item.stdin)}
-        </div>
+        {item.stdin && atob(item.stdin) && (
+          <div>
+            <strong>Stdin:</strong> <pre>{atob(item.stdin)}</pre>
+          </div>
+        )}
         <div>
           <strong>Status</strong>
           <h1>{output.status && output.status.description}</h1>{" "}
-          <strong>Output:</strong>
-          <h1>{output.stdout && atob(output.stdout)}</h1>
-          <strong>compiler_Output:</strong>
-          <pre>
-            {output.compile_output && atob(output.compile_output).slice(0, 120)}
-          </pre>
-          <pre>{output.stderr && atob(output.stderr).slice(0, 120)}</pre>
+          {output.stdout && atob(output.stdout) && (
+            <div>
+              <strong>Output:</strong>
+              <h1>{atob(output.stdout)}</h1>
+            </div>
+          )}
+          {output.compile_output && atob(output.compile_output) && (
+            <div>
+              <strong>compiler_Output:</strong>
+              <pre>{atob(output.compile_output).slice(0, 120)}</pre>
+            </div>
+          )}
+          {output.stderr && atob(output.stderr) && (
+            <div>
+              <strong>Error Output:</strong>
+              <pre>{atob(output.stderr).slice(0, 120)}</pre>
+            </div>
+          )}
         </div>
       </td>
     </tr>
